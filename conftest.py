@@ -21,8 +21,6 @@ from splinter import Browser
 def browser():
     print("\nstart browser for test..")
     browser = Browser('chrome')
-    get_url=browser.url
-    print(get_url)
     yield browser
     print("\nquit browser..")
     browser.quit()

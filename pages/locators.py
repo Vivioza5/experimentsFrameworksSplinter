@@ -8,7 +8,8 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
-
+    LOGIN_LINK_SPLINTER = ("#login_link")
+# разобраться как в сплинтер передавать кортежи
 
 class BasketPageLocators():
     BASKET_PAGE=(By.CSS_SELECTOR, "#basket")
