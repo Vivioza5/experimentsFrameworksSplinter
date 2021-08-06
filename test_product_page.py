@@ -42,11 +42,29 @@ class TestGuestAndUserAddProductToBasketAndGoToLoginPage:
         basket_page = BasketPage(browser, browser.current_url)
         basket_page.should_be_basket_page()
 
-    @pytest.mark.need_review
+
     def test_guest_can_go_login_link_from_product_page(self, browser):
-        page = ProductPage(browser, link)
+        link1 ="http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+        page = ProductPage(browser, link1)
         page.open()
         page.should_be_login_link()
+        page.add_to_cart_foo()
+
+        page.solve_quiz_and_get_code()
+        page.item_added_to_cart()
+        page.go_to_login_page()
+        login_page = LoginPage(browser, browser.url)
+        login_page.should_be_login_page()
+
+    @pytest.mark.need_review
+    def test_guest_can_go_login_link_from_product_page_add_item_to_basket(self, browser):
+        link1 ="http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+        page = ProductPage(browser, link1)
+        page.open()
+        page.should_be_login_link()
+        page.add_to_cart_foo()
+        page.solve_quiz_and_get_code()
+        page.item_added_to_cart()
         page.go_to_login_page()
         login_page = LoginPage(browser, browser.url)
         login_page.should_be_login_page()

@@ -7,18 +7,19 @@ from selenium.webdriver.common.by import By
 
 class ProductPage(BasePage):
     def add_to_cart_foo(self):
-       product_name = self.browser.find_element_by_css(ProductPageLocators.PRODUCT_NAME)
-       product_price = self.browser.find_element_by_css(ProductPageLocators.PRODUCT_PRICE)
+       product_name = self.browser.find_by_css(ProductPageLocators.PRODUCT_NAME)
+       product_price = self.browser.find_by_css(ProductPageLocators.PRODUCT_PRICE)
        self.product_name = product_name.text
        self.product_price = product_price.text
-       add_to_bascket = self.browser.find_element_by_css(ProductPageLocators.ADD_BASKET_BTN)
-       add_to_bascket.click()
+       self.browser.find_by_css(ProductPageLocators.ADD_BASKET_BTN).click()
+       print("item was added to basket")
+
 
     def item_added_to_cart(self):
         # time.sleep(20)
-        basket_message = self.browser.find_element_by_xpath,(ProductPageLocators.PRODUCT_BASKET_MESSAGE)
-        basket_message_name=self.browser.find_element(*ProductPageLocators.PRODUCT_BASKET_MESSAGE_NAME)
-        basket_message_price=basket_message.find_element(By.CSS_SELECTOR, ".alertinner p")
+        basket_message = self.browser.find_by_xpath(ProductPageLocators.PRODUCT_BASKET_MESSAGE)
+        basket_message_name=self.browser.find_by_xpath(ProductPageLocators.PRODUCT_BASKET_MESSAGE_NAME)
+        basket_message_price=basket_message.find_by_css(".alertinner p")
         print(basket_message_name.text)
         # print(basket_message_price.text)
         self.basket_message_name=basket_message_name.text

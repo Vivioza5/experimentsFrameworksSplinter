@@ -14,3 +14,18 @@ JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691:
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1628260288244	geckodriver	INFO	Listening on 127.0.0.1:34897
+1628260288461	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilezMQTIM"
+Gtk-Message: 17:31:30.557: Failed to load module "colorreload-gtk-module"
+1628260298809	Marionette	INFO	Marionette enabled
+
+(firefox:34058): IBUS-WARNING **: 17:31:40.096: Unable to connect to ibus: Не вдалося під'єднатися до: У з'єднанні відмовлено
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilezMQTIM/search.json.mozlz4", (void 0)))
+1628260310902	Marionette	INFO	Listening on port 38733
+1628260311236	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://selenium1py.pythonanywhere.com/uk/, line 374: ReferenceError: oscar is not defined
+JavaScript error: http://selenium1py.pythonanywhere.com/uk/, line 374: ReferenceError: oscar is not defined
+1628260325916	Marionette	INFO	Stopped listening on port 38733
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+

@@ -28,4 +28,4 @@ class TestMainPage1():
     def test_guest_should_see_basket_link_on_the_main_page(self, browser):
         browser.visit(link)
         time.sleep(10)
-        browser.find_by_css(BasePageLocators.LOGIN_LINK,10)
+

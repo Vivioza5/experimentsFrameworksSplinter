@@ -1,22 +1,25 @@
-# import pytest
-# from selenium import webdriver
-# import time
+import pytest
+from selenium import webdriver
 from splinter import Browser
 # def pytest_addoption(parser):
 #     parser.addoption('--browser_name', action='store', default="chrome",
 #                      help="Choose browser: chrome or firefox")
 #     parser.addoption('--language', action='store', default='en',
 #                      help='Choose language')
-#
+
 # @pytest.fixture(scope="class")
 # def browser():
-#     print("\nstart browser for test..")
-#     browser = webdriver.Chrome()
+#     print("\nstart browser Splinter for test..")
+#     browser = Browser('chrome')
 #     yield browser
 #     print("\nquit browser..")
 #     browser.quit()
-#
-#
+
+# @pytest.fixture(scope='session')
+# def splinter_webdriver():
+#     """Override splinter webdriver name."""
+#     return 'chrome'
+
 # @pytest.fixture(scope="function")
 # def browser(request):
 #     browser_name = request.config.getoption("browser_name")
@@ -32,15 +35,7 @@ from splinter import Browser
 #     yield browser
 #     print("\nquit browser..")
 #     browser.quit()
-#
+
 # @pytest.fixture
 # def browser_name(request):
 #     return request.config.getoption("--browser_name")
-
-@pytest.fixture(scope="class")
-def browser():
-    print("\nstart browser for test..")
-    browser = Browser('chrome')
-    yield browser
-    print("\nquit browser..")
-    browser.quit()
