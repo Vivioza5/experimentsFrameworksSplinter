@@ -9,12 +9,16 @@ from splinter import Browser
 
 @pytest.fixture(scope="class")
 def browser():
-    print("\nstart browser for test..")
+    print("\nstart browser Splinter for test..")
     browser = Browser('chrome')
     yield browser
     print("\nquit browser..")
     browser.quit()
 
+@pytest.fixture(scope='session')
+def splinter_webdriver():
+    """Override splinter webdriver name."""
+    return 'chrome'
 
 # @pytest.fixture(scope="function")
 # def browser(request):

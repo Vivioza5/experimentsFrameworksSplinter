@@ -7,16 +7,16 @@ from selenium.webdriver.common.by import By
 
 class ProductPage(BasePage):
     def add_to_cart_foo(self):
-       product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
-       product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
+       product_name = self.browser.find_element_by_css(ProductPageLocators.PRODUCT_NAME)
+       product_price = self.browser.find_element_by_css(ProductPageLocators.PRODUCT_PRICE)
        self.product_name = product_name.text
        self.product_price = product_price.text
-       add_to_bascket = self.browser.find_element(*ProductPageLocators.ADD_BASKET_BTN)
+       add_to_bascket = self.browser.find_element_by_css(ProductPageLocators.ADD_BASKET_BTN)
        add_to_bascket.click()
 
     def item_added_to_cart(self):
         # time.sleep(20)
-        basket_message = self.browser.find_element(*ProductPageLocators.PRODUCT_BASKET_MESSAGE)
+        basket_message = self.browser.find_element_by_xpath,(ProductPageLocators.PRODUCT_BASKET_MESSAGE)
         basket_message_name=self.browser.find_element(*ProductPageLocators.PRODUCT_BASKET_MESSAGE_NAME)
         basket_message_price=basket_message.find_element(By.CSS_SELECTOR, ".alertinner p")
         print(basket_message_name.text)
@@ -34,7 +34,7 @@ class ProductPage(BasePage):
         assert product_price in basket_message_price,  "item_added_to_cart_wrong"
 
     def should_not_be_success_message(self):
-        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_BASKET_MESSAGE_NAME),\
+        assert self.browser.is_not_element_present_by_xpath(ProductPageLocators.PRODUCT_BASKET_MESSAGE_NAME),\
             "Success message is presented, but should not be"
 
     def should_not_be_success_message_visible(self):

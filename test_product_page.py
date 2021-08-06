@@ -46,10 +46,10 @@ class TestGuestAndUserAddProductToBasketAndGoToLoginPage:
     def test_guest_can_go_login_link_from_product_page(self, browser):
         page = ProductPage(browser, link)
         page.open()
-        # page.should_be_login_link()
+        page.should_be_login_link()
         page.go_to_login_page()
-        # login_page = LoginPage(browser, browser.current_url)
-        # login_page.should_be_login_page()
+        login_page = LoginPage(browser, browser.url)
+        login_page.should_be_login_page()
 
 
 

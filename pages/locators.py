@@ -7,7 +7,7 @@ class MainLocators():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+    USER_ICON = (".icon-user")
     LOGIN_LINK_SPLINTER = ("#login_link")
 # разобраться как в сплинтер передавать кортежи
 
@@ -20,11 +20,11 @@ class BasketPageLocators():
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-    OPEN_BASKET_BTN = (By.CSS_SELECTOR,"div.basket-mini.pull-right.hidden-xs a")
+    OPEN_BASKET_BTN = ("div.basket-mini.pull-right.hidden-xs a")
 
 
 class LoginPageLocators():
-    LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
+    LOGIN_FORM = ("#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
     LOGIN_EMAIL= (By.NAME, "registration-email")
     PASSWORD_INPUT = (By.NAME, "registration-password1")
@@ -33,10 +33,10 @@ class LoginPageLocators():
 
 
 class ProductPageLocators():
-    ADD_BASKET_BTN = (By.CSS_SELECTOR, "#add_to_basket_form")
-    PRODUCT_NAME = (By.CSS_SELECTOR, ".col-sm-6.product_main h1")
-    PRODUCT_PRICE = (By.CLASS_NAME, "price_color")
-    PRODUCT_BASKET_MESSAGE = (By.XPATH,"//*[@id='messages']")
-    PRODUCT_BASKET_MESSAGE_NAME = (By.XPATH,"//*[@id='messages']/div[1]/div")
+    ADD_BASKET_BTN = ("#add_to_basket_form")
+    PRODUCT_NAME = (".col-sm-6.product_main h1")
+    PRODUCT_PRICE = (".price_color")
+    PRODUCT_BASKET_MESSAGE = ("//*[@id='messages']")
+    PRODUCT_BASKET_MESSAGE_NAME = ("//*[@id='messages']/div[1]/div")
 
 

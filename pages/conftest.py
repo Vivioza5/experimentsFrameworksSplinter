@@ -1,6 +1,7 @@
 # import pytest
 # from selenium import webdriver
 # import time
+from splinter import Browser
 # def pytest_addoption(parser):
 #     parser.addoption('--browser_name', action='store', default="chrome",
 #                      help="Choose browser: chrome or firefox")
@@ -35,3 +36,11 @@
 # @pytest.fixture
 # def browser_name(request):
 #     return request.config.getoption("--browser_name")
+
+@pytest.fixture(scope="class")
+def browser():
+    print("\nstart browser for test..")
+    browser = Browser('chrome')
+    yield browser
+    print("\nquit browser..")
+    browser.quit()

@@ -8,7 +8,7 @@ import math
 from splinter import Browser
 from selenium.webdriver.support.wait import WebDriverWait
 from .locators import BasePageLocators, MainPageLocators
-
+from pypom import splinter_driver
 
 class BasePage():
     def __init__(self, browser, url):
@@ -17,38 +17,14 @@ class BasePage():
         # self.browser.implicitly_wait(timeout)
 
     def go_to_login_page(self):
-        link = self.browser.find_by_css(BasePageLocators.LOGIN_LINK_SPLINTER)
-        link.click()
+        self.browser.find_by_css(BasePageLocators.LOGIN_LINK_SPLINTER).click()
+
 
     def go_to_basket_page(self):
-        link = self.browser.find_element(*MainPageLocators.OPEN_BASKET_BTN)
-        link.click()
-
-    # def is_not_element_present(self, how, what, timeout=4):
-    #     try:
-    #         WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
-    #     except TimeoutException:
-    #         return True
-    #
-    #     return False
-
-    # def is_disappeared(self, how, what, timeout=4):
-    #
-    #     try:
-    #         WebDriverWait(self.browser, timeout, 1, TimeoutException). \
-    #             until_not(EC.presence_of_element_located((how, what)))
-    #     except TimeoutException:
-    #         return False
-    #
-    #     return True
+        self.browser.find_by_css(MainPageLocators.OPEN_BASKET_BTN).click()
+        print(self.browser.url)
 
 
-    # def is_element_present(self, how, what):
-    #     try:
-    #         self.browser.find_element(how, what)
-    #     except (NoSuchElementException):
-    #         return False
-    #     return True
 
     def open(self):
         self.browser.visit(self.url)
@@ -71,10 +47,20 @@ class BasePage():
             print("No second alert presented")
 
     def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
-        # time.sleep(30)
+        assert self.browser.is_element_present_by_css(BasePageLocators.LOGIN_LINK_SPLINTER), "Login link is not presented"
+        print("it is login link")
+        # time.sleep(30)m
 
     def should_be_authorized_user(self):
-        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+        assert self.browser.is_element_present_by_css(BasePageLocators.USER_ICON), "User icon is not presented," \
                                                                  " probably unauthorised user"
         print("\nUser was registered")
+    # def is_disappeared(self, how, what, timeout=4):
+    #
+    #     try:
+    #         WebDriverWait(self.browser, timeout, 1, TimeoutException). \
+    #             until_not(EC.presence_of_element_located((how, what)))
+    #     except TimeoutException:
+    #         return False
+    #
+    #     return True

@@ -1,9 +1,11 @@
+import time
+
 import pytest
 from selenium import webdriver
 from splinter import Browser
 link = "http://selenium1py.pythonanywhere.com/"
 
-
+from .locators import BasePageLocators
 # @pytest.fixture(scope="function")
 # def browser():
 #     print("\nstart browser for test..")
@@ -11,10 +13,12 @@ link = "http://selenium1py.pythonanywhere.com/"
 #     yield browser
 #     print("\nquit browser..")
 #     browser.quit()
-
-
+from selenium.webdriver.common.by import By
+from pypom import Page
+from splinter import Browser
 class TestMainPage1():
-
+    # LOGIN_LINK = ('id', "#login_link")
+    # LOGIN_LINK = ("#login_link")
     @pytest.mark.smoke
     def test_guest_should_see_login_link(self, browser):
         browser.visit(link)
@@ -23,4 +27,5 @@ class TestMainPage1():
     @pytest.mark.regression
     def test_guest_should_see_basket_link_on_the_main_page(self, browser):
         browser.visit(link)
-        browser.find_by_css(".basket-mini .btn-group > a")
+        time.sleep(10)
+        browser.find_by_css(BasePageLocators.LOGIN_LINK,10)
