@@ -5,16 +5,16 @@ class MainLocators():
 
 
 class BasePageLocators():
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK = ("#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     USER_ICON = (".icon-user")
-    LOGIN_LINK_SPLINTER = ("#login_link")
+
 # разобраться как в сплинтер передавать кортежи
 
 class BasketPageLocators():
-    BASKET_PAGE=(By.CSS_SELECTOR, "#basket")
-    BASKET_ITEM=(By.CLASS_NAME, "basket-items")
-    BASKET_EMPTY_MESS=(By.ID, "content_inner")
+    BASKET_PAGE=( "#basket")
+    BASKET_ITEM=(".basket-items")
+    BASKET_EMPTY_MESS=("#content_inner")
 
 
 class MainPageLocators():
@@ -25,7 +25,7 @@ class MainPageLocators():
 
 class LoginPageLocators():
     LOGIN_FORM = ("#login_form")
-    REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+    REGISTER_FORM = ("#register_form")
     LOGIN_EMAIL= ("registration-email")
     PASSWORD_INPUT = ( "registration-password1")
     PASSWORD_CONFIRM_INPUT=("registration-password2")

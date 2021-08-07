@@ -11,7 +11,7 @@ class ProductPage(BasePage):
        product_price = self.browser.find_by_css(ProductPageLocators.PRODUCT_PRICE)
        self.product_name = product_name.text
        self.product_price = product_price.text
-       self.browser.find_by_css(ProductPageLocators.ADD_BASKET_BTN).click()
+       self.browser.find_by_css(ProductPageLocators.ADD_BASKET_BTN,5).click()
        print("item was added to basket")
 
 

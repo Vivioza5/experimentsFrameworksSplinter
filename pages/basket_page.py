@@ -14,13 +14,13 @@ class BasketPage(BasePage):
 
 
     def should_be_basket_page(self):
-        assert "basket" in self.browser.current_url , "Login link is not presented"
+        assert "basket" in self.browser.url , "Login link is not presented"
 
     def should_not_be_items_in_basket(self):
-        assert self.is_not_element_present(*BasketPageLocators.BASKET_ITEM),\
+        assert self.is_not_element_present_by_css(BasketPageLocators.BASKET_ITEM),\
              "Items in basket is presented, but should not be"
 
     def should_basket_empty_message(self):
-        bascket_empty_message=self.browser.find_element(*BasketPageLocators.BASKET_EMPTY_MESS)
+        bascket_empty_message=self.browser.find_by_css(BasketPageLocators.BASKET_EMPTY_MESS)
         assert "Your basket is empty." in bascket_empty_message.text,\
              "Items in basket is presented, but should not be"

@@ -17,7 +17,7 @@ class BasePage():
         # self.browser.implicitly_wait(timeout)
 
     def go_to_login_page(self):
-        self.browser.find_by_css(BasePageLocators.LOGIN_LINK_SPLINTER).click()
+        self.browser.find_by_css(BasePageLocators.LOGIN_LINK).click()
 
 
     def go_to_basket_page(self):
@@ -48,7 +48,7 @@ class BasePage():
             print("No second alert presented")
 
     def should_be_login_link(self):
-        assert self.browser.is_element_present_by_css(BasePageLocators.LOGIN_LINK_SPLINTER), "Login link is not presented"
+        assert self.browser.is_element_present_by_css(BasePageLocators.LOGIN_LINK), "Login link is not presented"
         print("it is login link")
         # time.sleep(30)m
 
